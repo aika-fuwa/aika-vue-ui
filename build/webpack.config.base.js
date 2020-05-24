@@ -1,0 +1,95 @@
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+
+function resolve(dir) {
+    return path.resolve(__dirname, dir);
+}
+
+module.exports = {
+    entry: resolve('../src/index.ts'),
+    output: {
+        path: resolve('../dist'),
+        filename: '[name].js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/]
+                }
+            },
+            {
+                test: /\.vue/,
+                loader: 'vue-loader',
+                options: {
+                    loader: {
+                        'less': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'less-loader'
+                        ],
+                    }
+                },
+                exclude: /node_modules\/(?!(autotrack|dom-utils))|vendor\.dll\.js/
+            },
+            {
+                test: /\.js$/,
+                use: 'babel-loader?cacheDirectory=true',
+                exclude: /node_modules/,
+                
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    MiniCSSExtractPlugin.loader,
+                    'css-loader',
+                    'less-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'image/[name]_[hash:8].[ext]'
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new MiniCSSExtractPlugin({
+            filename: '[name]_[contenthash:8].css'
+        }),
+        new HtmlWebpackPlugin({
+            template: resolve('../public/index.html'),
+            filename: 'index.html',
+            minify: {
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCSS: true,
+                minifyJS: true,
+                removeComments: true
+            }
+        }),
+        new VueLoaderPlugin(),
+    ],
+    resolve: {
+        extensions: ['.js', 'ts', 'vue', '.json'],
+        alias: {
+            '@': resolve('../src'),
+        },
+        modules: [
+            'node_modules',
+            resolve('../src'),
+        ]
+    },
+};
+
