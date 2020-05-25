@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
+import AikaUI from '../components/index.js';
+
+Vue.use(AikaUI);
 
 Vue.config.productionTip = false;
 
