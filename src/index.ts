@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import AikaUI from '../components/index.js';
+import AikaUI from './components/index';
 
 Vue.use(AikaUI);
 
