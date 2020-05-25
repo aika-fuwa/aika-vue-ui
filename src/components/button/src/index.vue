@@ -7,15 +7,17 @@
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator'
 
-    enum ButtonType { // 能用枚举吗？
-        primary = 'primary',
-        success = 'success',
-        warning = 'warning',
-    }
+    // enum ButtonType { // 能用枚举吗？
+    //     primary = 'primary',
+    //     success = 'success',
+    //     warning = 'warning',
+    // }
+
+    type ButtonType = 'primary' | 'success' | 'warning'; // 用type比较好 来定义组合类型 或者交叉类型
 
     @Component
     export default class AikaButton extends Vue {
-        @Prop(String) readonly type: string | undefined
+        @Prop(String) readonly type?: string
 
         // 初始数据可以直接声明为实例的 property
         message: string = 'Hello!'
