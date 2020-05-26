@@ -17,7 +17,7 @@
 
     @Component
     export default class AikaButton extends Vue {
-        @Prop(String) readonly type?: string
+        @Prop(String) readonly type?: ButtonType
 
         // 初始数据可以直接声明为实例的 property
         message: string = 'Hello!'
