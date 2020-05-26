@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.config.dev.js --open --inline --progress",
     "build": "webpack --config build/webpack.config.prod.js",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +39,8 @@
     "vue-loader": "^15.9.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-typescript": "^0.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
