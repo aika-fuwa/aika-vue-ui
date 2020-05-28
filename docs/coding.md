@@ -66,9 +66,9 @@
         function foo(p1, p2, p3) {  
             var p3 = p3 || 10;  
             return {  
-                p1: p1,  
-                p2: p2,  
-                p3: p3  
+              p1: p1,  
+              p2: p2,  
+              p3: p3  
             };  
         }  
 23. 强制: 对 Object 中各项的描述， 必须使用 @param 标识  
