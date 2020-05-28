@@ -41,58 +41,58 @@
 18. 建议: 类注释
      例:  使用 @class 标记类或构造函数
      注: 对于使用对象 constructor 属性来定义的构造函数，可以使用 @constructor 来标记
-19. 建议: 使用 @extends 标记类的继承信息
-     例: /**
-        * some describe information
-        * @class
-        * @extends Developer
-        */
-        function Fronteer() {
-            Developer.call(this);
-        }
-        util.inherits(Fronteer, Developer);
-20. 强制: 类的属性或方法等成员信息不是 public 的，应使用 @protected 或 @private 标识可访问性
-21. 强制: 返回类型必须在方法或文件顶部进行注释，类型定义必须{开始,}结束
-     例: {string}, {number}, {boolean}, {Object}, {Function}, {RegExp}, {Array}, {Date}
-22. 强制: 对于基本类型 {string}, {number}, {boolean}，首字母必须小写
-     例: /**
-        * function describe information
-        * @param {string} p1 参数1的说明
-        * @param {string} p2 参数2的说明，比较长
-        *     换行
-        * @param {number=} p3 参数3的说明（可选）
-        * @return {Object} 返回值描述
-        */
-        function foo(p1, p2, p3) {
-            var p3 = p3 || 10;
-            return {
-                p1: p1,
-                p2: p2,
-                p3: p3
-            };
-        }
-23. 强制: 对 Object 中各项的描述， 必须使用 @param 标识
-24. 强制: 必须使用 @event 标识事件，事件参数的标识与方法描述的参数标识相同
-     例: /**
-        * 值变更时触发
-        *
-        * @event Select#change
-        * @param {Object} e e描述
-        * @param {string} e.before before描述
-        * @param {string} e.after after描述
-        */
-25. 建议: 尽可能使用 === 进行条件判断，只有null/undefined时才可以使用 ==，但是TS中一般不存在这种情况
-26. 尽可能使用简洁表达式
-     例: if (param) {}
-27. 强制: 字符串必须使用单引号 ''
-28. 强制: 必须使用字面量来创建数组或对象
+19. 建议: 使用 @extends 标记类的继承信息  
+     例: /**  
+        * some describe information  
+        * @class  
+        * @extends Developer  
+        */  
+        function Fronteer() {  
+            Developer.call(this);  
+        }  
+        util.inherits(Fronteer, Developer);  
+20. 强制: 类的属性或方法等成员信息不是 public 的，应使用 @protected 或 @private 标识可访问性  
+21. 强制: 返回类型必须在方法或文件顶部进行注释，类型定义必须{开始,}结束  
+     例: {string}, {number}, {boolean}, {Object}, {Function}, {RegExp}, {Array}, {Date}  
+22. 强制: 对于基本类型 {string}, {number}, {boolean}，首字母必须小写  
+     例: /**  
+        * function describe information  
+        * @param {string} p1 参数1的说明  
+        * @param {string} p2 参数2的说明，比较长  
+        *     换行  
+        * @param {number=} p3 参数3的说明（可选）  
+        * @return {Object} 返回值描述  
+        */  
+        function foo(p1, p2, p3) {  
+            var p3 = p3 || 10;  
+            return {  
+                p1: p1,  
+                p2: p2,  
+                p3: p3  
+            };  
+        }  
+23. 强制: 对 Object 中各项的描述， 必须使用 @param 标识  
+24. 强制: 必须使用 @event 标识事件，事件参数的标识与方法描述的参数标识相同  
+     例: /**  
+        * 值变更时触发  
+        *  
+        * @event Select#change  
+        * @param {Object} e e描述  
+        * @param {string} e.before before描述  
+        * @param {string} e.after after描述  
+        */  
+25. 建议: 尽可能使用 === 进行条件判断，只有null/undefined时才可以使用 ==，但是TS中一般不存在这种情况  
+26. 尽可能使用简洁表达式  
+     例: if (param) {}  
+27. 强制: 字符串必须使用单引号 ''  
+28. 强制: 必须使用字面量来创建数组或对象  
 29. 强制: 接口命名不要使用I开头
 30. 强制: 不应显式声明可以自动类型推断的类型
 31. 强制: 使用string/number/boolean来声明基础类型,不要使用String/Number/Boolean
 32. 建议: 数组元素为不可变类型时，使用ReadonlyArray<T>声明类型
-33. 强制: 不实用！声明对象属性非空
-     例: if (foo.bar && foo.bar.baz) {}
-     反例: if (foo!.bar!.baz) {}
+33. 强制: 不实用！声明对象属性非空  
+     例: if (foo.bar && foo.bar.baz) {}  
+     反例: if (foo!.bar!.baz) {}  
 34. 建议: 不建议使用any类型
 35. 强制: 断言使用as，而不是使用<>
 36. 强制: 接口不应为空
