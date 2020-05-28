@@ -22,6 +22,8 @@
     docs: 文档修改
     style: 代码格式或样式修改
     refactor: 重构代码
+    s_refactor: 微小的代码结构变化
+    spec: 普通的格式变化
     optimize：优化代码（不要在新增功能或修复bug的时候填写）
     perf：性能优化
     test：增加测试
