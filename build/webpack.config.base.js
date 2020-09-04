@@ -33,6 +33,11 @@ module.exports = {
                             'css-loader',
                             'less-loader'
                         ],
+                        'scss': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader'
+                        ],
                     }
                 },
                 exclude: /node_modules\/(?!(autotrack|dom-utils))|vendor\.dll\.js/
@@ -46,9 +51,21 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    MiniCSSExtractPlugin.loader,
+                    process.env.NODE_ENV !== 'production'
+                        ? 'vue-style-loader'
+                        : MiniCSSExtractPlugin.loader,
                     'css-loader',
                     'less-loader'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    process.env.NODE_ENV !== 'production'
+                        ? 'vue-style-loader'
+                        : MiniCSSExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
@@ -82,7 +99,7 @@ module.exports = {
         new VueLoaderPlugin(),
     ],
     resolve: {
-        extensions: ['.js', 'ts', 'vue', '.json'],
+        extensions: ['.js', 'ts', 'vue', '.json', '.scss'],
         alias: {
             '@': resolve('../src'),
         },

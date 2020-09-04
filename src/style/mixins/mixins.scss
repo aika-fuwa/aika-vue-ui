@@ -1,0 +1,34 @@
+@import "./config";
+
+// BEM
+@mixin b($block) {
+  $B: $namespace+'-'+$block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  // 比如父选择器是 aika-button + 修饰符分隔符 __ + 修饰符 primary
+  // 生成选择器为 aika-button__primary
+  $currentSelector: & + $modifier-separator + $modifier;
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+@mixin when($state) {
+  // .aika-button {
+  //    @include when(plain) { ... }
+  // }
+  // .aika-button.is-plain { ... }
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
