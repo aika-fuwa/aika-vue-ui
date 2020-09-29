@@ -50,3 +50,9 @@ $--border-radius-base: 4px !default;
 $--border-radius-small: 2px !default;
 $--border-radius-circle: 100% !default;
 $--border-radius-zero: 0 !default;
+// Background
+$--background-color-base: #F5F7FA !default;
+// disabled
+$--disabled-fill-base: $--background-color-base !default;
+$--disabled-color-base: $--color-text-placeholder !default;
+$--disabled-border-base: $--border-color-light !default;

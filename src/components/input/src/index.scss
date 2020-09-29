@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import "../../../style/var";
+@import "../../../style/mixins/mixins";
+
+.aika-input, .aika-textarea {
+  width: 100%;
+  font-size: $--font-size-base;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+
+  .aika-input__inner {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid $--border-color-base;
+    border-radius: $--border-radius-base;
+    color: $--color-text-regular;
+    box-sizing: border-box;
+    padding: 0 15px;
+    cursor: pointer;
+    width: 100%;
+    background: $--color-white;
+
+    &:focus {
+      outline: none;
+      border-color: $--color-primary;
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      color: $--font-color-disabled-base;
+      background: $--disabled-fill-base;
+    }
+
+    &::placeholder {
+      color: $--color-text-placeholder;
+    }
+  }
+
+  .aika-textarea__inner {
+    padding: 5px 15px;
+    line-height: 1.5;
+    border: 1px solid $--border-color-base;
+    border-radius: $--border-radius-base;
+    color: $--color-text-regular;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    background: $--color-white;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: $--color-primary;
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      color: $--font-color-disabled-base;
+    }
+
+    &::placeholder {
+      color: $--color-text-placeholder;
+    }
+  }
+
+  &:hover {
+    .clear-button {
+      display: inline-block;
+    }
+  }
+
+  .clear-button {
+    position: absolute;
+    right: 10px;
+    background: #ccc;
+    height: 15px;
+    width: 15px;
+    top: 12px;
+    line-height: 14px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+  }
+
+}

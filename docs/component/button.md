@@ -3,7 +3,7 @@ title: Button 按钮
 
 ---
 
-## 基础用法
+## Button 按钮
 
 <demo-base></demo-base>
 
@@ -44,7 +44,7 @@ title: Button 按钮
 
 
 <script>
-import demoBase from '../component-demo/button/base';
+import demoBase from '../component-demo/button';
 
 export default {
     components: {

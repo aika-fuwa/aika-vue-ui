@@ -1,6 +1,5 @@
 <template>
-    <div class="app">
-        Icon
+    <div class="container">
         <div class="row">
             <div class="item"><aika-icon name="add-bold"></aika-icon><span>add-bold</span></div>
             <div class="item"><aika-icon name="minus-bold"></aika-icon><span>minus-bold</span></div>
@@ -22,30 +21,24 @@
 </template>
 
 <script>
-
-export default {
-    components: {
-    },
-    data() {
-        return {
-            value: ''
-        }
-    },
-    methods: {
-        handleInput(v) {
-            console.log('input', v);
-        },
-        handleChange(v) {
-            console.log('change', v);
-        }
+    export default {
+        name: 'button-base',
     }
-}
 </script>
 
-<style lang="scss">
-    .row {
-        /*display: flex;*/
+<style>
 
+</style>
+
+<style scoped lang="scss">
+    .container {
+        border: 1px solid #f3f3f3;
+        border-radius: 3px;
+        padding: 20px;
+    }
+    .row {
+        margin-bottom: 10px;
+        overflow: hidden;
     }
     .item {
         width: 100px;
@@ -54,19 +47,19 @@ export default {
         text-align: center;
         margin-right: 10px;
         margin-bottom: 10px;
-        .aika-icon {
-            display: block;
-            font-size: 32px;
-            color: #606266;
-            height: 80px;
-            line-height: 80px;
-        }
-        span {
-            display: block;
-            height: 20px;
-            line-height: 20px;
-            font-size: 12px;
-            color: #9a9a9a;
-        }
+    .aika-icon {
+        display: block;
+        font-size: 32px;
+        color: #606266;
+        height: 80px;
+        line-height: 80px;
+    }
+    span {
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        color: #9a9a9a;
+    }
     }
 </style>

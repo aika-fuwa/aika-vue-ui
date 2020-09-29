@@ -40,6 +40,8 @@ module.exports = {
                     collapsable: false,
                     children: [
                         'button',
+                        'input',
+                        'icon'
                     ]
                 },
             ]
